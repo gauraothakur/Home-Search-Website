@@ -1,0 +1,45 @@
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 15px black;
+}
+.rmp-btn-grp {
+    text-align: center;
+    button {
+        padding: 1em;
+        margin: 1em;
+        font-weight: bold;
+    }
+}
+
+.jumbotron {
+    height: calc(100vh - 56px);
+    background-image: url(./../../assets/jumbo.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
+    margin-bottom: 0;
+}
+
+.rmp-rent-text {
+    color: orange;
+}
+
+.rmp-my-text {
+    color: white;
+}
+
+.rmp-place-text {
+    color: green;
+}
+
+.rmp-search-group {
+    margin-top: 5em;
+    input {
+        width: 80%;
+        line-height: 2.5em;
+        padding-left: 2em;
+    }
+    button {
+        width: 20%;
+    }
+}

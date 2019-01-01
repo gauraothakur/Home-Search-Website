@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col col-sm-12">
+    <div class="text-heading propertyPage">
+      My Properties
+    </div>
+    <a  *ngIf="!isSavedPropertiesPage" class="link" (click)="goToAddPropertiesPage()">+ Add a property</a>
+  </div>
+  <div class="grid-margin-top">
+    <div class="grid-container">
+    <div *ngIf="properties.length <=0" class="noListings">No current listings.</div>
+      <div *ngFor="let property of properties;let p_index=index">
+        <p-card  [style]="{width: '360px'}"
+          styleClass="ui-card-shadow">
+          <p-header>
+            <app-carousel [imageDetails]="property.images"></app-carousel>
+          </p-header>
+          <div (click)="goToPropertyDetails(property)">
+            <div *ngIf="!property.isForRent">
+              <div class="title-div lead">
+                {{property.propertyType}} for Sale
+              </div>
+              <div class="price-div">
+                USD {{property.price}}
+                <span>{{property.beds}} beds </span>
+                <span>{{property.baths}} baths </span>
+                <span>{{property.sqaureFeet}} sq. ft </span>
+              </div>
+            </div>
+            <div *ngIf="property.isForRent">
+              <div class="title-div lead">
+                {{property.propertyType}} for Rent
+              </div>
+              <div class="price-div">
+                USD {{property.price}} /mo
+                <span>{{property.beds}} beds </span>
+                <span>{{property.baths}} baths </span>
+                <span>{{property.sqaureFeet}} sq. ft </span>
+              </div>
+            </div>
+            <div class="address-div">
+              Address: {{property.address}}
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</div>

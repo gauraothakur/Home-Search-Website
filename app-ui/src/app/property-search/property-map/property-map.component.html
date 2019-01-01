@@ -1,0 +1,4 @@
+<agm-map [latitude]="+propertyListings[0].latitute" [longitude]="+propertyListings[0].longitute" [zoom] = "15">
+  <agm-marker *ngFor="let property of propertyListings" [latitude]="+property.latitute" [longitude]="+property.longitute"
+    (mouseOver)="onMouseOverMarker(property)" (mouseOut)="onMouseOutMarker(property)"></agm-marker>
+</agm-map>

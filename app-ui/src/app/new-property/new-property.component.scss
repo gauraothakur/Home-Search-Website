@@ -1,0 +1,117 @@
+.container {
+    width:1000px;
+    height: 1000px;
+    margin: 0 auto;
+
+    div .ui-carousel-viewport{
+        background-color: #bbb7b754;
+    }
+
+    .amenitiesTitle{
+        margin: 10px 0px 10px 0px;
+
+        div{
+            margin: inherit;
+        }
+    }
+
+  
+    
+}
+
+.grid-container-photo-map {
+    display: grid;
+    grid-template-columns: 40% 60% ;
+
+    .mapsBorder{
+        border:1px solid gray
+    }
+    .mapsImage{
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 15px;
+    align-content: space-around;
+    grid-template-columns: auto auto ;
+}
+
+
+
+.Text-h2 {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    letter-spacing: normal;
+}
+
+label{
+    display: block;
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.Input-container {
+    position: relative;
+}
+.Input-has-append {
+    padding-right: 43px;
+}
+.Input {
+    display: block;
+    transition: all 0.15s ease-in-out;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 0;
+    color: #444;
+    font-size: 15px;
+    -webkit-appearance: none;
+    outline: none;
+    width: 100%;
+    line-height: 24px;
+    height: 42px;
+    padding: 4px 10px;
+    padding-right: 43px;
+}
+.Input-container-addon {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    padding: 6px;
+    right: 0;
+}
+
+.Input-container-addon1 {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    padding: 6px;
+    
+}
+
+.Input-append{
+    margin-top:1.5px;
+}
+
+.add-btn {
+    float: right;
+    text-align: right;
+    margin: 2em auto;
+}
+
+.back-btn {
+    text-align: right;
+    margin: 2em auto;
+}
+
+agm-map {
+    height: 245px;
+}
+
+.upload-btn{
+    margin-top: 10px;
+}

@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="jumbotron">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Credit/Debit Card Number</label>
+          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" min="1000000000000000"
+            max="9999999999999999" maxlength="16" placeholder="Enter Card Number">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your card number with anyone else.</small>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="exampleInputPassword1">Expiration Date</label>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option value=''>Month</option>
+            <option value='01'>January</option>
+            <option value='02'>February</option>
+            <option value='03'>March</option>
+            <option value='04'>April</option>
+            <option value='05'>May</option>
+            <option value='06'>June</option>
+            <option value='07'>July</option>
+            <option value='08'>August</option>
+            <option value='09'>September</option>
+            <option value='10'>October</option>
+            <option value='11'>November</option>
+            <option value='12'>December</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <select class="form-control" id="exampleFormControlSelect2">
+            <option value=''>Year</option>
+            <option value='10'>2018</option>
+            <option value='11'>2019</option>
+            <option value='12'>2020</option>
+            <option value='12'>2021</option>
+            <option value='12'>2022</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <input type="number" class="form-control" id="exampleInputPassword2" placeholder="CVV" min="100" max="999"
+            maxlength="3">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="paybtn" (click) = "subscribeUser()">Pay</button>
+    </form>
+  </div>
+</div>

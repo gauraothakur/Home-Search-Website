@@ -1,0 +1,108 @@
+<div *ngIf="currentLoggedInUser" class="container">
+  <div class="page-header">
+    <h1>My Profile</h1>
+  </div>
+  <p-accordion [multiple]="true">
+    <p-accordionTab header="Profile Picture">
+      <div class="profile-picture">
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <a class="thumbnail">
+              <img *ngIf="currentLoggedInUser && !currentLoggedInUser.profilePicture" src="./../../assets/defaultDp.jpg">
+              <img *ngIf="currentLoggedInUser && currentLoggedInUser.profilePicture" [src]="getImageUrl()">
+            </a>
+          </div>
+          <div class="col-xs-12 col-md-9">
+            <div class="col-xs-12 col-md-6">
+              <input type="file" accept="image/*" name="photo" ng2FileSelect [uploader]="fileUploader.getUploader()" />
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <!-- button to trigger the file upload when submitted -->
+              <button type="button" class="btn btn-success btn-s" (click)="fileUploader.getUploader().uploadAll()"
+                [disabled]="!fileUploader.getUploader().getNotUploadedItems().length">
+                Change Profile Picture
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Personal Information">
+      <div class="personal-info">
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="firstName">First Name:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="firstName" type="text" pInputText [(ngModel)]="currentLoggedInUser.fname" />
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="lastName">Last Name:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="lastName" type="text" pInputText [(ngModel)]="currentLoggedInUser.lname" />
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="address">Address:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="address" type="text" pInputText [(ngModel)]="currentLoggedInUser.address" />
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="city">City:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="city" type="text" pInputText [(ngModel)]="currentLoggedInUser.city" />
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="state">State:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <p-dropdown name="state" [options]="states" [(ngModel)]="currentLoggedInUser.state"></p-dropdown>
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="zip">ZIP Code:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="zip" type="text" pInputText [(ngModel)]="currentLoggedInUser.zipcode" />
+          </div>
+        </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Contact Information">
+      <div class="personal-info">
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="phone">Phone Number:</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="phone" type="text" pInputText [(ngModel)]="currentLoggedInUser.phone" />
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-xs-12 col-md-4">
+            <label for="email">Email Address (for contact purpose):</label>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <input name="email" type="text" pInputText [(ngModel)]="currentLoggedInUser.contactEmail" />
+          </div>
+        </div>
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+  <div class="update-btn">
+    <button type="button" class="btn btn-success btn-s" (click)="updateUser()">
+      Update
+    </button>
+  </div>
+</div>

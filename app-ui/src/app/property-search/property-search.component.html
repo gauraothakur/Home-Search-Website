@@ -1,0 +1,145 @@
+<div class="container-fluid">
+  <p-accordion>
+    <p-accordionTab [selected]="true" header="Filter Options">
+      <div class="row">
+        <div class="col-sm-3 col-xs-12">
+          <div>
+            <label for="search">Search: </label>
+          </div>
+          <div>
+            <input type="text" name="search" pInputText [(ngModel)]="query.search" />
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div>
+            <label for="beds">Beds: </label>
+          </div>
+          <div>
+            <select id="beds" class="form-control" [(ngModel)]="query.beds">
+              <option selected value="">All</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div>
+            <label for="beds">Baths: </label>
+          </div>
+          <div>
+            <select id="baths" class="form-control" [(ngModel)]="query.bath">
+              <option selected value="">All</option>
+              <option>1</option>
+              <option>1.5</option>
+              <option>2</option>
+              <option>2.5</option>
+              <option>3</option>
+              <option>3.5</option>
+              <option>4</option>
+              <option>4.5</option>
+              <option>5+</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div>
+            <label for="propertyType">Property type:</label>
+          </div>
+          <div>
+            <select id="propertyType" [(ngModel)]="query.propertyType" class="form-control">
+              <option selected value="">All</option>
+              <option>House</option>
+              <option>Condo / Apartment unit</option>
+              <option>Townhouse</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div>
+            <label>Amenities</label>
+          </div>
+          <div>
+            <div>
+              <p-checkbox name="group1" value="A/C" label="A/C" [(ngModel)]="query.amenities" inputId="A/C"></p-checkbox>
+            </div>
+            <div>
+              <p-checkbox name="group1" value="Balcony / Deck" label="Balcony /
+                    Deck" [(ngModel)]="query.amenities"
+                inputId="balcony"></p-checkbox>
+            </div>
+            <div>
+              <p-checkbox name="group1" value="Furnished" label="Furnished" [(ngModel)]="query.amenities" inputId="furnished"></p-checkbox>
+            </div>
+            <div>
+              <p-checkbox name="group1" value="Hardwood Floor" label="Hardwood
+                    Floor" [(ngModel)]="query.amenities"
+                inputId="floor"></p-checkbox>
+            </div>
+            <div>
+              <p-checkbox name="group1" value="Wheelchair Access" label="Wheelchair Access" [(ngModel)]="query.amenities"
+                inputId="wheelChair"></p-checkbox>
+            </div>
+            <div>
+              <p-checkbox name="group1" value="Garage Parking" label="Garage
+                    Parking" [(ngModel)]="query.amenities"
+                inputId="garage"></p-checkbox>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div>
+            <label for="laundry">Laundry</label>
+          </div>
+          <div>
+            <select id="laundry" [(ngModel)]="query.laundry" class="form-control">
+              <option selected value="">All</option>
+              <option value="none">None</option>
+              <option value="inunit">In unit</option>
+              <option value="shared">Shared / In-building</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="query.isForRent" class="col-sm-3 col-xs-12">
+          <div>
+            <label for="leaseDuration">Lease Duration</label>
+          </div>
+          <div>
+            <select id="leaseDuration" [(ngModel)]="query.leaseDuration" class="form-control">
+              <option selected value="">All</option>
+              <option>1 month</option>
+              <option>6 months</option>
+              <option>1 year</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 filter-btn-wrapper">
+          <div class="col-xs-6">
+            <button pButton type="button" icon="pi pi-ban" class="ui-button-danger" (click)="removeFilter()"></button>
+          </div>
+          <div class="col-xs-6">
+            <button pButton type="button" icon="pi pi-filter" (click)="filterProperties()"></button>
+          </div>
+        </div>
+      </div>
+
+    </p-accordionTab>
+  </p-accordion>
+  <div *ngIf="properties.length > 0" class="row">
+    <div class="col-sm-12 col-md-6 property-map">
+      <app-property-map *ngIf="properties" [propertyListings]="properties" (mouseOverEmitter)="scrollToElement($event)"
+        (mouseOutEmitter)="removeHighlight($event)"></app-property-map>
+    </div>
+    <div class="col-sm-12 col-md-6 property-grid">
+      <app-property-grid *ngIf="properties" [propertyListings]="properties"></app-property-grid>
+    </div>
+  </div>
+  <div *ngIf="properties.length <= 0" class="no-properties-msg">
+    No properties available for the searched criteria!
+  </div>
+</div>

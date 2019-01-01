@@ -1,0 +1,93 @@
+<div class="jumbotron">
+   <div class="container">
+      <div class="grid-container">
+         <div>
+            <p-card [style]="{width: '360px', height:'200px'}" styleClass="ui-card-shadow">
+               <p-header>
+                  <app-carousel [imageDetails]="property.images"></app-carousel>
+               </p-header>
+            </p-card>
+         </div>
+         <div>
+            <agm-map [latitude]="+property.latitute" [longitude]="+property.longitute" [zoom]="15">
+               <agm-marker [latitude]="++property.latitute" [longitude]="++property.longitute"></agm-marker>
+            </agm-map>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-9">
+            <h2>{{property.address}}</h2>
+            <div>
+               <h3><span>{{property.beds}} Beds - </span><span>{{property.bath}} Baths - </span> <span>{{property.sqaureFeet}}
+                     sqft </span></h3>
+            </div>
+            <div>
+               <p> {{property.description}} </p>
+            </div>
+            <div class="row">
+               <div>
+                  <h3>Amenities</h3>
+               </div>
+               <div *ngFor="let amenity of property.amenities" class="col-md-4">
+                  <div>
+                     <span class="glyphicon glyphicon-envelope"></span>
+                     <h4>{{amenity}}</h4>
+                  </div>
+               </div>
+            </div>
+            <div class="row InteriorFeatures col-mod-12">
+               <div>
+                  <h3>Contact Information</h3>
+               </div>
+               <div class="col-md-4">
+                  <div>
+                     <h4>Name</h4>
+                     <span>
+                        <h5>{{property.contactName}}</h5>
+                     </span>
+                     <div></div>
+                  </div>
+                  <div>
+                     <h4>Email</h4>
+                     <span>
+                        <h5>{{property.contactEmail}}</h5>
+                     </span>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div>
+                     <h4>Phone Number</h4>
+                     <span>
+                        <h5>{{property.contactPhone}}</h5>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <span>
+               <h3>FOR {{property.isForRent? "RENT":"SALE"}}</h3>
+            </span>
+            <span>
+               <h3> ${{property.price}}{{property.isForRent? "/mo":""}}</h3>
+            </span>
+            <span>
+               <h3> Date Available</h3>
+               <h4>{{property.dateAvailable}}</h4>
+            </span>
+            <span *ngIf="property.isForRent">
+               <h3> Lease Duration</h3>
+               <h4>{{property.leaseDuration}}</h4>
+            </span>
+            <div>
+            <button *ngIf="!isSaved"class="btn btn-success btn-success btn-width" (click)="likeProperty(property)" type="button">Like</button>
+            <button *ngIf="isSaved" class="btn btn-warning btn-width " (click)="unlikeProperty(property)" type="button">Unlike</button>
+               <button *ngIf="isOwnerOrBroker && currentLoggedInUser &&  property.addedBy === currentLoggedInUser._id"
+                  class="btn btn-primary btn-margin btn-width" (click)="updateProperty(property)" type="button">Update</button>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+</div>

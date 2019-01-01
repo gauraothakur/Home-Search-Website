@@ -1,0 +1,36 @@
+.monospaced { font-family: 'Ubuntu Mono', monospaced ;
+ }
+
+.container .grid-container{
+	 display: grid; 
+	 grid-template-columns: 30% 60%;
+	 grid-column-gap: 20px;
+	
+	 div{
+		 border: 1px solid lightgray;
+	 }
+ }
+
+
+.red{
+    color:red;
+    }
+.form-area
+{
+    // background-color: #FAFAFA;
+	padding: 10px 40px 60px;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+	}
+
+agm-map {
+	height: 17.5em;
+}
+
+.btn-width{
+	width: 80px;
+}
+.btn-margin{
+	margin-left: 30px;
+}
+

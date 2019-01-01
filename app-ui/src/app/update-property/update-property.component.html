@@ -1,0 +1,220 @@
+<div class="container" *ngIf="propertyDetails">
+  <div class="form-group">
+    <label for="propertyAddress">Property Address</label>
+    <app-place-auto-complete [defaultText]="propertyDetails.address" (setLocation)="getLocation($event)"></app-place-auto-complete>
+  </div>
+  <div class="grid-container-photo-map">
+    <div class="mapsBorder">
+      <app-carousel [imageDetails]="imageDetails"></app-carousel>
+    </div>
+    <div class="mapsBorder">
+      <agm-map [latitude]="+propertyDetails.latitute" [longitude]="+propertyDetails.longitute">
+        <agm-marker [latitude]="+propertyDetails.latitute" [longitude]="+propertyDetails.longitute"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  <p-accordion>
+    <p-accordionTab>
+      <p-header class="Text-h2">
+        Details and description
+      </p-header>
+      <div>
+        <div class="grid-container">
+          <div class="form-group">
+            <div class="ui-g-10">
+              <p-checkbox name="forRent" binary="true" label="For Rent" [(ngModel)]="propertyDetails.isForRent" inputId="forRent">
+              </p-checkbox>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <div class="Input-container form-group">
+              <span class="Input-container-addon1 Input-container-append">
+                <div class="Input-append">$</div>
+              </span>
+              <input name="price" type="number" class="Input-has-append
+                form-control" [(ngModel)]="propertyDetails.price"
+                placeholder="Enter amount">
+              <span class="Input-container-addon Input-container-append">
+                <div class="Input-append">/mo</div>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="propertyType">Property type</label>
+            <select id="propertyType" [(ngModel)]="propertyDetails.propertyType" class="form-control">
+              <option selected>Please select</option>
+              <option>House</option>
+              <option>Condo / Apartment unit</option>
+              <option>Townhouse</option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="propertyDetails.isForRent">
+            <label for="leaseDuration">Lease Duration</label>
+            <select id="leaseDuration" [(ngModel)]="propertyDetails.leaseDuration" class="form-control">
+              <option selected>Please select</option>
+              <option>1 month</option>
+              <option>6 months</option>
+              <option>1 year</option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="propertyDetails.isForRent">
+            <label for="deposit">Security Deposit</label>
+            <div class="Input-container form-group">
+              <span class="Input-container-addon1 Input-container-append">
+                <div class="Input-append">$</div>
+              </span>
+              <input id="deposit" [(ngModel)]="propertyDetails.securityDeposit" type="number" class="Input-has-append
+                form-control"
+                name="deposit" placeholder="Enter amount">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateAvailable">Date available</label>
+            <input id="dateAvailable" [(ngModel)]="propertyDetails.dateAvailable" type="date" class="form-control" name="dateAvailable"
+              placeholder="Select Date (Optional)">
+          </div>
+
+          <div class="form-group">
+            <label for="beds">Beds</label>
+            <select id="beds" class="form-control" [(ngModel)]="propertyDetails.beds">
+              <option selected>Please select</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="baths">Baths</label>
+            <select id="baths" class="form-control" [(ngModel)]="propertyDetails.bath">
+              <option selected>Please select</option>
+              <option>1</option>
+              <option>1.5</option>
+              <option>2</option>
+              <option>2.5</option>
+              <option>3</option>
+              <option>3.5</option>
+              <option>4</option>
+              <option>4.5</option>
+              <option>5+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sqFeet">Sqaure feet</label>
+            <input id="sqFeet" type="number" [(ngModel)]="propertyDetails.sqaureFeet" class="form-control" name="sqFeet"
+              placeholder="Square feet">
+          </div>
+        </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab>
+      <p-header class="Text-h2">
+        Amenities and rules
+      </p-header>
+      <div class="grid-container">
+        <div class="amenitiesTitle">
+          <label>AMENITIES (Optional)</label>
+          <hr>
+          <div>
+            <p-checkbox name="group1" value="A/C" label="A/C" [(ngModel)]="propertyDetails.amenities" inputId="A/C"></p-checkbox>
+          </div>
+          <div>
+            <p-checkbox name="group1" value="Balcony / Deck" label="Balcony /
+              Deck" [(ngModel)]="propertyDetails.amenities"
+              inputId="balcony"></p-checkbox>
+          </div>
+          <div>
+            <p-checkbox name="group1" value="Furnished" label="Furnished" [(ngModel)]="propertyDetails.amenities"
+              inputId="furnished"></p-checkbox>
+          </div>
+          <div>
+            <p-checkbox name="group1" value="Hardwood Floor" label="Hardwood
+              Floor" [(ngModel)]="propertyDetails.amenities"
+              inputId="floor"></p-checkbox>
+          </div>
+          <div>
+            <p-checkbox name="group1" value="Wheelchair Access" label="Wheelchair Access" [(ngModel)]="propertyDetails.amenities"
+              inputId="wheelChair"></p-checkbox>
+          </div>
+          <div>
+            <p-checkbox name="group1" value="Garage Parking" label="Garage
+              Parking" [(ngModel)]="propertyDetails.amenities"
+              inputId="garage"></p-checkbox>
+          </div>
+        </div>
+        <div class="amenitiesTitle">
+          <label>LAUNDRY (Optional)</label>
+          <hr>
+          <div>
+            <p-radioButton name="group1" value="none" label="None" [(ngModel)]="propertyDetails.laundry" inputId="none"></p-radioButton>
+          </div>
+          <div>
+            <p-radioButton name="group1" value="inunit" label="In unit" [(ngModel)]="propertyDetails.laundry" inputId="inunit"></p-radioButton>
+          </div>
+          <div>
+            <p-radioButton name="group1" value="shared" label="Shared /
+              In-building" [(ngModel)]="propertyDetails.laundry"
+              inputId="shared"></p-radioButton>
+          </div>
+        </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab>
+      <p-header class="Text-h2">
+        Photos & media
+      </p-header>
+      <div>
+        <input type="file" multiple accept="image/*" name="photo" ng2FileSelect [uploader]="fileUploader.getUploader()" />
+      </div>
+
+      <div *ngFor="let item of fileUploader.getUploader().queue;">
+        <div class="upload-btn">{{ item?.file?.name}}
+          <span> <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
+              <span class="glyphicon glyphicon-trash"></span> Remove
+            </button></span>
+        </div>
+      </div>
+      <div class="upload-btn">
+        <!-- button to trigger the file upload when submitted -->
+        <button type="button" class="btn btn-success btn-s" (click)="uploadFiles()" [disabled]="!fileUploader.getUploader().getNotUploadedItems().length">
+          Upload files
+        </button>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab>
+      <p-header class="Text-h2">
+        Contact Info
+      </p-header>
+      <div class="grid-container">
+        <div class="form-group">
+          <label for="contactName">Name</label>
+          <input id="contactName" [(ngModel)]="propertyDetails.contactName" type="text" class="form-control" name="contactName">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" [(ngModel)]="propertyDetails.contactEmail" type="Email" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input id="phone" [(ngModel)]="propertyDetails.contactPhone" maxlength="10" type="number" class="form-control"
+            name="phone" placeholder="(999) 999-9999">
+        </div>
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+  <div>
+    <button class="btn btn-success add-btn" type="button" (click)="updateProperty()">Update</button>
+    <button *ngIf="!isUpdate" class="btn btn-light back-btn" type="button" (click)="goToPreviousPage()">Back</button>
+  </div>
+  <div>

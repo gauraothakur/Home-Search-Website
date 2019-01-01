@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="row">
+    <div [id]=property._id class="col-xs-12 col-sm-6" *ngFor="let property of propertyListings;" (click)="goToPropertyDetails(property)">
+      <p-card styleClass="ui-card-shadow">
+        <p-header>
+          <app-carousel [imageDetails]="property.images"></app-carousel>
+        </p-header>
+        <div>
+          <div *ngIf="!property.isForRent">
+            <div class="title-div lead">
+              {{property.propertyType}} for Sale
+            </div>
+            <div class="price-div">
+              USD {{property.price}}
+              <span>{{property.beds}} beds </span>
+              <span>{{property.baths}} baths </span>
+              <span>{{property.sqaureFeet}} sq. ft </span>
+            </div>
+          </div>
+          <div *ngIf="property.isForRent">
+            <div class="title-div lead">
+              {{property.propertyType}} for Rent
+            </div>
+            <div class="price-div">
+              USD {{property.price}} /mo
+              <span>{{property.beds}} beds </span>
+              <span>{{property.baths}} baths </span>
+              <span>{{property.sqaureFeet}} sq. ft </span>
+            </div>
+          </div>
+          <div class="address-div">
+            Address: {{property.address}}
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!-- <pre>{{mortgage | json}}</pre> -->
+<form>
+  <div class="form-group row">
+    <label for="homeValue" class="col-sm-3 col-form-label">Home Value</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control" name="homeValue" (ngModelChange)="onHomeValueChange()" [(ngModel)]="mortgage.homeValue">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="downPayment" class="col-sm-3 col-form-label">Down Payment</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control" name="downPaymentAmount" (ngModelChange)="onDownPaymentAmountChange()" [(ngModel)]="mortgage.downPaymentAmount">
+    </div>
+    <div class="col-sm-3">
+      <input type="number" class="form-control" name="downPaymentRate"  (ngModelChange)="onDownPaymentRateChange()" [(ngModel)]="mortgage.downPaymentRate">
+    </div>
+    <label for="homeValue" class="col-form-label">%</label>
+  </div>
+  <div class="form-group row">
+    <label for="loanAmount" class="col-sm-3 col-form-label">Loan Amount</label>
+    <div class="col-sm-4">
+      <input type="number" disabled class="form-control" name="loanAmount" [ngModel]="getLoanAmount()">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="loanLength" class="col-sm-3 col-form-label">Loan Length</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control" placeholder="30" name="loanLength" [(ngModel)]="mortgage.loanLength">
+    </div>
+    <label class="col-sm-3 col-form-label">Years</label>
+  </div>
+  <div class="form-group row text-warning">
+    <label for="downPayment" class="col-sm-3 col-form-label">Interest Rate</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control" for="downPaymentRate" placeholder="4" name="interestRate" [(ngModel)]="mortgage.interestRate">
+    </div>
+    <label for="homeValue" class="col-form-label">%</label>
+  </div>
+
+  <div class="form-group row text-success">
+    <label for="downPayment" class="col-sm-3 col-form-label">Annual Taxes</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="annualTax" [(ngModel)]="extras.annualTax">
+    </div>
+    <div class="col-sm-3">
+      <input type="number" disabled class="form-control" name="annualTaxInterest" [(ngModel)]="extras.annualTaxInterest">
+    </div>
+    <label for="homeValue" class="col-form-label">%</label>
+  </div>
+  <div class="form-group row text-info">
+    <label class="col-sm-3 col-form-label">Home Insurance</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control"  name="homeInsurance" [(ngModel)]="mortgage.homeInsurance">
+    </div>
+    <label class="col-sm-3 col-form-label">per year</label>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2 offset-sm-3">
+      <button type="submit" class="btn btn-primary" (click)="calc()">Calculate</button>
+    </div>
+  </div>
+</form>

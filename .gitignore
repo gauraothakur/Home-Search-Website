@@ -1,0 +1,6 @@
+node_modules
+api/views
+api/data
+package-lock.json
+*.orig
+api/uploads

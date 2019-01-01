@@ -1,0 +1,12 @@
+.errorMessage{
+    font-style: italic;
+    color: red;
+    font-size: large;
+    margin-left: 40%
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 600px;
+  }
+}

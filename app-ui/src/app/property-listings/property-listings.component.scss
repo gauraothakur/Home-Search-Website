@@ -1,0 +1,80 @@
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:1000px;
+    height: 1000px;
+    margin: 0 auto;
+    .link{
+        color: #0074E4;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .propertyPage{
+        display: inline;
+        margin-right: 15px;
+    }
+    .text-heading{
+        font-size: 33px;
+        line-height: 40px;
+        font-weight: bold;
+        letter-spacing: normal;
+    }
+}
+
+.grid-margin-top{
+    margin-top: 5em;
+
+    .grid-container{
+        width:1000px;
+        display: grid;
+        grid-gap: 25px;
+        align-content: space-around;
+        grid-template-columns: 1fr 1fr 1fr;
+
+     
+
+        &.noListings {
+            text-align: center;
+            height: calc(100vh - 56px);
+            padding-top: 30vh;
+            font-size: xx-large;
+        }
+    }
+
+    p-card:hover{
+        cursor: pointer;
+    }
+  
+}
+
+.wrapper {
+    height: calc(100vh - 56px);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.address-div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.price-div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bolder;
+    span {
+        font-weight: 100;
+    }
+}
+.title-div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+
+
+

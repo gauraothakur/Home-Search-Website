@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to <span class="rmp-rent-text">Rent</span><span class="rmp-my-text">My</span><span class="rmp-place-text">Place</span></h1>
+    <div class="rmp-btn-grp">
+      <button pButton type="button" id = "rent-btn" class="ui-button-secondary" label="RENT" (click)="setButtonActive(1)"></button>
+      <button pButton type="button" id = "buy-btn" class="ui-button-secondary" label="BUY" (click)="setButtonActive(2)"></button>
+      <button pButton type="button" id = "sell-btn" class="ui-button-secondary" label="SELL" (click)="setButtonActive(3)"></button>
+    </div>
+    <div class="rmp-search-group">
+      <div class="ui-inputgroup">
+        <input type="text" pInputText placeholder="Enter an address, neighborhood, city or ZIP Code" [(ngModel)] = "searchField">
+        <button pButton type="button" class="ui-button-success" label="SEARCH" (click)="navigateToListing()"></button>
+      </div>
+    </div>
+  </div>
+</div>

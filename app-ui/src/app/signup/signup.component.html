@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <br>
+            <div class="h4">Create An Account</div>
+            <label class="errorMessage">{{errorMessage}}</label>
+            <br>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input [(ngModel)]="signUpDetails.email" name="email" type="email" class="form-control" id="inputEmail4"
+                            placeholder="Email..">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input [(ngModel)]="signUpDetails.password" name="password" type="password" class="form-control"
+                            id="inputPassword4" placeholder="Password.." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                            required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group  col-md-12">
+                        <label for="inputAddress">Address</label>
+                        <input [(ngModel)]="signUpDetails.address" name="address" type="text" class="form-control" id="inputAddress"
+                            placeholder="Address..">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputphone">Phone Number</label>
+                        <input [(ngModel)]="signUpDetails.phone" name="phone" type="text" class="form-control" id="inputphone"
+                            placeholder="Phone Number..">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputtype">User Type</label>
+                        <div>
+                            <p-dropdown name="userType" [options]="userTypes" [(ngModel)]="signUpDetails.userType"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="inputCity">City</label>
+                        <input [(ngModel)]="signUpDetails.city" name="city" type="text" class="form-control" id="inputCity"
+                            placeholder="City..">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <div>
+                            <p-dropdown name="state" [options]="states" [(ngModel)]="signUpDetails.state"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputZip">Zip Code</label>
+                        <input type="text" input [(ngModel)]="signUpDetails.zipcode" name="zipcode" class="form-control"
+                            id="inputZip" placeholder="Zip Code..">
+                    </div>
+                </div>
+                <div id="btnSign">
+                  <button type="submit" (click)="signUp()" class="btn btn-primary">Sign Up</button>
+                </div>
+              </form>
+            <hr>
+            <!-- <div class="h6">
+                <label for="socialmedia">Sign Up With Your Social Account</label>
+                <div class="social-media">
+                    <button class="btn btn-primary"><i class="fa fa-facebook">&nbsp;Facebook</i></button>
+                    &nbsp;
+                    <button class="btn btn-primary"><i class="fa fa-google">&nbsp;Google</i></button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

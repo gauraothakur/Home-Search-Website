@@ -1,0 +1,56 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">RentMyPlace</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    
+  </div><!-- /.container-fluid -->
+</nav>
+
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h3 >Calculate Your Mortgagee</h3>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <mortgage-form></mortgage-form>
+      </div>
+      <div class="col-md-6">
+        <mortgage-result></mortgage-result>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-success mx-auto" (click)="showMore = true">Compare</button>
+    </div>
+    <hr>
+  </div>
+
+  <div class="container" *ngIf="showMore">
+    <div class="row">
+      <div class="col-md-6">
+        <mortgage-form></mortgage-form>
+      </div>
+      <div class="col-md-6">
+        <mortgage-result></mortgage-result>
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+
+</main>
+

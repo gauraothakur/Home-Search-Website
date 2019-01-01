@@ -1,0 +1,52 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">RentMyPlace</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!currentLoggedInUser"><a (click)="showLogInDialog()">Log-In</a></li>
+        <li *ngIf="!currentLoggedInUser"><a (click)="showSignUpDialog()">Sign-Up</a></li>
+        <li *ngIf="currentLoggedInUser" class="dropdown">
+          <a href="#" class="dropdown-toggle dropdown-profile" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">
+            <span *ngIf="currentLoggedInUser" class="image-circle">
+              <img *ngIf="currentLoggedInUser && !currentLoggedInUser.profilePicture" src="./../../assets/defaultDp.jpg">
+              <img *ngIf="currentLoggedInUser && currentLoggedInUser.profilePicture" [src]="getImageUrl()">
+            </span>
+            <span *ngIf="currentLoggedInUser && !currentLoggedInUser.fname">{{currentLoggedInUser.email}}</span>
+            <span *ngIf="currentLoggedInUser && currentLoggedInUser.fname">{{currentLoggedInUser.fname}}</span>
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a (click)="goToUserProfile()">User Profile</a></li>
+            <li><a *ngIf="isOwnerLoggedIn" (click)="goToPropertyListingsPage()">My Listings</a></li>
+            <li><a *ngIf="isOwnerLoggedIn && !currentLoggedInUser.isProUser" (click)="showSubscriptionDialog()">Be a Pro User</a></li>
+            <li><a (click)="goToSavedPropertyListingsPage()">Saved Properties</a></li>
+            <li><a (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<p-dialog header="Sign Up" [(visible)]="displaySignUp" [modal]="true">
+  <app-signup></app-signup>
+</p-dialog>
+
+<p-dialog header="Log In" [(visible)]="displayLogIn" [modal]="true">
+  <app-login></app-login>
+</p-dialog>
+
+<p-dialog header="Subscribe" [(visible)]="displaySubscription" [modal]="true">
+    <app-payment></app-payment>
+  </p-dialog>
